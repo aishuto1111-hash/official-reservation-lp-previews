@@ -8,16 +8,17 @@
   <meta name="robots" content="noindex,nofollow">
   <style>
     :root {
-      --ink: #1d1a17;
-      --muted: #625b54;
-      --line: #dfd8cf;
-      --paper: #f7f2ea;
-      --white: #fffdf9;
-      --rose: #c46b61;
-      --green: #29463b;
-      --sage: #dce8dc;
-      --yellow: #ead36a;
-      --shadow: 0 26px 80px rgba(29, 26, 23, .14);
+      --ink: #171411;
+      --muted: #6f665f;
+      --line: #ded6cc;
+      --paper: #f6f1e9;
+      --soft: #fffaf3;
+      --mist: #e5eee8;
+      --sage: #496f5d;
+      --rose: #b66a63;
+      --blue: #385a70;
+      --gold: #d2b35f;
+      --shadow: 0 28px 80px rgba(23, 20, 17, .13);
     }
 
     * {
@@ -30,15 +31,10 @@
 
     body {
       margin: 0;
-      color: var(--ink);
       background: var(--paper);
+      color: var(--ink);
       font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Yu Gothic", sans-serif;
       letter-spacing: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     img {
@@ -47,18 +43,17 @@
       height: auto;
     }
 
-    .draft {
-      position: fixed;
-      inset: auto 16px 16px auto;
-      z-index: 30;
-      max-width: 260px;
-      padding: 12px 14px;
-      background: rgba(29, 26, 23, .9);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 800;
-      line-height: 1.6;
-      box-shadow: var(--shadow);
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    figure {
+      margin: 0;
     }
 
     .topbar {
@@ -69,24 +64,25 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      min-height: 72px;
-      padding: 0 clamp(18px, 5vw, 62px);
-      background: rgba(247, 242, 234, .9);
-      border-bottom: 1px solid rgba(29, 26, 23, .1);
+      min-height: 70px;
+      padding: 0 clamp(18px, 4vw, 58px);
+      background: rgba(246, 241, 233, .9);
+      border-bottom: 1px solid rgba(23, 20, 17, .09);
       backdrop-filter: blur(18px);
     }
 
     .brand {
       display: grid;
       gap: 2px;
-      font-weight: 900;
       line-height: 1;
+      font-weight: 900;
     }
 
     .brand span {
       color: var(--muted);
-      font-size: 11px;
-      letter-spacing: .08em;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
 
@@ -103,40 +99,52 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
+      min-height: 44px;
       padding: 0 18px;
       border: 1px solid var(--ink);
       background: var(--ink);
-      color: var(--white);
-      font-size: 14px;
+      color: var(--soft);
+      font-size: 13px;
       font-weight: 900;
       cursor: pointer;
     }
 
     .button.line {
-      background: var(--green);
-      border-color: var(--green);
+      background: var(--sage);
+      border-color: var(--sage);
     }
 
     .button.secondary {
+      background: var(--soft);
       color: var(--ink);
-      background: var(--white);
       border-color: var(--line);
+    }
+
+    .preview-note {
+      padding: 9px clamp(18px, 4vw, 58px);
+      background: #e9ded6;
+      color: #5f534c;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.6;
+      text-align: center;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, .95fr);
-      min-height: calc(92svh - 72px);
-      background: var(--white);
+      grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+      gap: clamp(34px, 6vw, 86px);
+      align-items: center;
+      min-height: calc(92svh - 102px);
+      padding: clamp(36px, 6vw, 86px) clamp(18px, 5vw, 72px);
+      background:
+        linear-gradient(90deg, var(--soft) 0%, var(--soft) 54%, var(--mist) 54%, var(--mist) 100%);
     }
 
     .hero-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
       gap: 22px;
-      padding: clamp(34px, 6vw, 78px) clamp(22px, 6vw, 78px);
+      max-width: 640px;
     }
 
     .eyebrow {
@@ -144,10 +152,10 @@
       align-items: center;
       width: fit-content;
       gap: 10px;
-      color: var(--green);
-      font-size: 12px;
+      color: var(--sage);
+      font-size: 11px;
       font-weight: 900;
-      letter-spacing: .13em;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
@@ -158,26 +166,18 @@
       background: var(--rose);
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
     h1 {
-      max-width: 680px;
-      font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Yu Gothic", sans-serif;
-      font-size: clamp(42px, 5.2vw, 68px);
-      line-height: 1.05;
+      max-width: 560px;
+      font-size: clamp(42px, 4.7vw, 64px);
+      line-height: 1.08;
       font-weight: 900;
       letter-spacing: 0;
     }
 
     .lead {
-      max-width: 610px;
+      max-width: 570px;
       color: var(--muted);
-      font-size: clamp(16px, 1.6vw, 19px);
+      font-size: clamp(15px, 1.5vw, 18px);
       font-weight: 700;
       line-height: 1.9;
     }
@@ -188,63 +188,93 @@
       gap: 10px;
     }
 
-    .quick {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      max-width: 660px;
-      background: var(--line);
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 560px;
+    }
+
+    .chip {
+      padding: 8px 11px;
       border: 1px solid var(--line);
-    }
-
-    .quick div {
-      padding: 16px;
-      background: var(--paper);
-    }
-
-    .quick strong {
-      display: block;
-      font-size: 20px;
-      line-height: 1.1;
-    }
-
-    .quick span {
-      display: block;
-      margin-top: 8px;
+      background: rgba(255, 250, 243, .72);
       color: var(--muted);
       font-size: 12px;
-      font-weight: 800;
-      line-height: 1.5;
+      font-weight: 900;
     }
 
-    .hero-media {
+    .hero-visual {
       position: relative;
-      min-height: 540px;
-      overflow: hidden;
-      background: var(--green);
+      min-height: 580px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 132px;
+      grid-template-rows: 1fr auto;
+      gap: 14px;
+      align-items: end;
     }
 
-    .hero-media img {
+    .main-photo {
+      grid-row: 1 / 3;
+      min-height: 580px;
+      overflow: hidden;
+      background: var(--sage);
+      box-shadow: var(--shadow);
+    }
+
+    .main-photo img,
+    .mini-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .media-note {
+    .main-photo img {
+      object-position: center 70%;
+    }
+
+    .mini-photo {
+      aspect-ratio: 1 / 1.3;
+      overflow: hidden;
+      background: var(--rose);
+    }
+
+    .mini-note {
+      padding: 16px;
+      background: var(--ink);
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .floating-card {
       position: absolute;
-      left: clamp(18px, 3vw, 34px);
-      right: clamp(18px, 3vw, 34px);
-      bottom: clamp(18px, 3vw, 34px);
+      left: clamp(18px, 4vw, 54px);
+      bottom: clamp(18px, 4vw, 48px);
+      max-width: 330px;
       padding: 18px;
-      background: rgba(255, 253, 249, .92);
+      background: rgba(255, 250, 243, .92);
       box-shadow: var(--shadow);
-      color: var(--ink);
-      font-weight: 900;
-      line-height: 1.7;
+      backdrop-filter: blur(12px);
+    }
+
+    .floating-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .floating-card span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.65;
     }
 
     section {
-      padding: clamp(58px, 8vw, 104px) clamp(18px, 5vw, 68px);
+      padding: clamp(58px, 8vw, 104px) clamp(18px, 5vw, 70px);
     }
 
     .section-head {
@@ -258,17 +288,22 @@
 
     h2 {
       max-width: 760px;
-      font-size: clamp(31px, 5vw, 62px);
-      line-height: 1.04;
+      font-size: clamp(30px, 4.8vw, 58px);
+      line-height: 1.08;
+      font-weight: 900;
       letter-spacing: 0;
     }
 
     .section-head p {
-      max-width: 430px;
+      max-width: 440px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       line-height: 1.85;
+    }
+
+    .quiet {
+      background: var(--paper);
     }
 
     .feature-grid {
@@ -284,134 +319,172 @@
     .feature {
       display: grid;
       gap: 18px;
-      min-height: 280px;
+      min-height: 292px;
       align-content: start;
       padding: 26px;
-      background: var(--white);
+      background: var(--soft);
     }
 
     .feature b {
       display: grid;
       place-items: center;
-      width: 42px;
-      height: 42px;
-      background: var(--yellow);
-      font-size: 13px;
+      width: 40px;
+      height: 40px;
+      background: var(--mist);
+      color: var(--sage);
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .feature h3 {
       font-size: 23px;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
-    .feature p,
-    .feature li {
+    .feature p {
       color: var(--muted);
       font-size: 14px;
       font-weight: 700;
       line-height: 1.75;
     }
 
-    .feature ul {
+    .gallery {
       display: grid;
-      gap: 8px;
-      margin: 0;
-      padding-left: 18px;
+      grid-template-columns: minmax(0, .82fr) minmax(0, 1fr) minmax(0, .82fr);
+      gap: 14px;
+      max-width: 1180px;
+      margin: 44px auto 0;
+      align-items: end;
     }
 
-    .menu-list {
+    .gallery img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .gallery img:nth-child(2) {
+      height: 440px;
+    }
+
+    .menu-section {
+      background: var(--soft);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
       max-width: 1180px;
       margin: 0 auto;
-      border-top: 1px solid var(--line);
     }
 
-    .menu-row {
+    .menu-card {
       display: grid;
-      grid-template-columns: minmax(160px, .75fr) minmax(0, 1.3fr) minmax(130px, .45fr);
-      gap: 22px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-      align-items: center;
+      gap: 16px;
+      align-content: start;
+      min-height: 290px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: var(--paper);
     }
 
-    .menu-row strong {
-      font-size: 19px;
-      line-height: 1.25;
+    .menu-card .tag {
+      width: fit-content;
+      padding: 6px 8px;
+      background: var(--ink);
+      color: var(--soft);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
-    .menu-row span {
+    .menu-card h3 {
+      font-size: 24px;
+      line-height: 1.18;
+    }
+
+    .menu-card p {
       color: var(--muted);
       font-size: 14px;
       font-weight: 700;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     .price {
-      justify-self: end;
-      color: var(--green);
+      margin-top: auto;
+      color: var(--sage);
+      font-size: 18px;
       font-weight: 900;
     }
 
-    .dark {
-      background: var(--green);
-      color: var(--white);
-    }
-
-    .dark .section-head p {
-      color: rgba(255, 253, 249, .74);
+    .flow-section {
+      background: var(--sage);
+      color: var(--soft);
     }
 
     .flow {
       display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(320px, 1fr);
+      grid-template-columns: minmax(0, .9fr) minmax(320px, 1fr);
       gap: clamp(30px, 6vw, 78px);
       max-width: 1180px;
       margin: 0 auto;
       align-items: start;
     }
 
+    .flow .eyebrow {
+      color: var(--soft);
+    }
+
+    .flow .eyebrow::before {
+      background: var(--gold);
+    }
+
     .steps {
       display: grid;
-      gap: 16px;
+      gap: 15px;
     }
 
     .step {
       display: grid;
-      grid-template-columns: 44px minmax(0, 1fr);
+      grid-template-columns: 46px minmax(0, 1fr);
       gap: 16px;
       padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255, 253, 249, .25);
+      border-bottom: 1px solid rgba(255, 250, 243, .22);
     }
 
     .step b {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      background: var(--rose);
-      color: var(--white);
-      font-size: 13px;
+      width: 46px;
+      height: 46px;
+      background: var(--soft);
+      color: var(--sage);
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .step h3 {
       margin-bottom: 8px;
       font-size: 20px;
+      line-height: 1.25;
     }
 
     .step p {
-      color: rgba(255, 253, 249, .74);
+      color: rgba(255, 250, 243, .76);
       font-size: 14px;
       font-weight: 700;
       line-height: 1.8;
     }
 
     .request {
-      background: var(--white);
+      background: var(--paper);
     }
 
     .request-wrap {
       display: grid;
-      grid-template-columns: minmax(0, .85fr) minmax(360px, 1fr);
+      grid-template-columns: minmax(0, .82fr) minmax(360px, 1fr);
       gap: clamp(28px, 5vw, 74px);
       max-width: 1180px;
       margin: 0 auto;
@@ -420,7 +493,7 @@
 
     .request-copy {
       position: sticky;
-      top: 102px;
+      top: 100px;
       display: grid;
       gap: 18px;
     }
@@ -435,9 +508,10 @@
     form {
       display: grid;
       gap: 14px;
-      padding: clamp(22px, 4vw, 36px);
-      background: var(--paper);
+      padding: clamp(22px, 4vw, 34px);
       border: 1px solid var(--line);
+      background: var(--soft);
+      box-shadow: 0 18px 50px rgba(23, 20, 17, .08);
     }
 
     label {
@@ -456,7 +530,7 @@
       width: 100%;
       min-height: 48px;
       border: 1px solid var(--line);
-      background: var(--white);
+      background: #fff;
       color: var(--ink);
       padding: 12px 13px;
       font: inherit;
@@ -473,7 +547,7 @@
       min-height: 52px;
       border: 0;
       background: var(--rose);
-      color: var(--white);
+      color: var(--soft);
       font-size: 15px;
       font-weight: 900;
       cursor: pointer;
@@ -487,11 +561,15 @@
     }
 
     .access {
+      background: var(--soft);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(320px, 1fr);
+      gap: clamp(28px, 5vw, 70px);
       max-width: 1180px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(320px, 1fr);
-      gap: clamp(28px, 5vw, 70px);
       align-items: stretch;
     }
 
@@ -514,7 +592,7 @@
       grid-template-columns: 118px minmax(0, 1fr);
       gap: 16px;
       padding: 16px;
-      background: var(--white);
+      background: var(--soft);
     }
 
     dt,
@@ -533,23 +611,22 @@
       font-weight: 700;
     }
 
-    .map {
-      min-height: 420px;
+    .map-panel {
+      min-height: 430px;
       display: grid;
-      place-items: center;
-      padding: 24px;
+      align-content: end;
+      padding: 28px;
       background:
-        linear-gradient(135deg, rgba(41, 70, 59, .84), rgba(41, 70, 59, .44)),
-        url("https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1300&q=85") center / cover;
-      color: var(--white);
-      text-align: center;
+        linear-gradient(180deg, rgba(23, 20, 17, .04), rgba(23, 20, 17, .38)),
+        url("https://images.unsplash.com/photo-1600428877878-1a0fd85beda5?auto=format&fit=crop&w=1300&q=85") center / cover;
+      color: var(--soft);
     }
 
-    .map strong {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(32px, 5vw, 58px);
-      font-weight: 500;
-      line-height: 1.05;
+    .map-panel strong {
+      max-width: 420px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.08;
+      font-weight: 900;
     }
 
     footer {
@@ -558,7 +635,7 @@
       gap: 18px;
       padding: 28px clamp(18px, 5vw, 68px);
       background: var(--ink);
-      color: var(--white);
+      color: var(--soft);
       font-size: 12px;
       font-weight: 800;
     }
@@ -572,7 +649,7 @@
       max-width: min(560px, calc(100vw - 36px));
       padding: 14px 18px;
       background: var(--ink);
-      color: var(--white);
+      color: var(--soft);
       box-shadow: var(--shadow);
       font-size: 13px;
       font-weight: 800;
@@ -586,21 +663,47 @@
       opacity: 1;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .hero,
       .feature-grid,
+      .menu-grid,
       .flow,
       .request-wrap,
-      .access {
+      .access-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-media {
-        min-height: 52svh;
+      .hero {
+        min-height: auto;
+        background: var(--soft);
+      }
+
+      .hero-visual {
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .main-photo {
+        grid-row: auto;
+        min-height: 520px;
+      }
+
+      .mini-photo,
+      .mini-note {
+        display: none;
       }
 
       .section-head {
         display: grid;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img,
+      .gallery img:nth-child(2) {
+        height: 360px;
       }
 
       .request-copy {
@@ -609,11 +712,8 @@
     }
 
     @media (max-width: 680px) {
-      .draft {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-        max-width: none;
+      .preview-note {
+        text-align: left;
       }
 
       .topbar {
@@ -626,22 +726,22 @@
       }
 
       .brand {
-        max-width: 156px;
+        max-width: 154px;
         font-size: 15px;
       }
 
       .topbar .button {
-        min-height: 42px;
+        min-height: 40px;
         padding: 0 12px;
         font-size: 12px;
       }
 
-      .hero-copy {
-        padding-top: 38px;
+      .hero {
+        padding-top: 34px;
       }
 
       h1 {
-        font-size: clamp(46px, 17vw, 70px);
+        font-size: clamp(36px, 11vw, 50px);
       }
 
       .lead {
@@ -653,17 +753,20 @@
         width: 100%;
       }
 
-      .quick {
-        grid-template-columns: 1fr;
+      .main-photo {
+        min-height: 420px;
       }
 
-      .menu-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
+      .floating-card {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: none;
       }
 
-      .price {
-        justify-self: start;
+      .gallery img,
+      .gallery img:nth-child(2) {
+        height: 300px;
       }
 
       .info div {
@@ -678,106 +781,117 @@
   </style>
 </head>
 <body>
-  <div class="draft">非公式ラフ案です。写真・文言・料金・営業時間は正式導入時に店舗様確認のうえ差し替えます。</div>
-
   <header class="topbar">
     <a class="brand" href="#top" aria-label="nail salon C.">
       nail salon C.
-      <span>Private nail salon</span>
+      <span>Private nail atelier</span>
     </a>
     <nav class="nav" aria-label="ページ内ナビゲーション">
       <a href="#feature">特徴</a>
       <a href="#menu">メニュー</a>
-      <a href="#flow">流れ</a>
+      <a href="#flow">予約</a>
       <a href="#access">アクセス</a>
     </nav>
     <a class="button line" href="#reserve">LINEで相談</a>
   </header>
 
+  <div class="preview-note">非公式ラフ案です。写真・文言・料金・営業時間は正式導入時に店舗様確認のうえ差し替えます。</div>
+
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
         <span class="eyebrow">Yotsugi private nail</span>
-        <h1>四ツ木の完全個室ネイルサロン。</h1>
-        <p class="lead">フィルイン、パラジェル変更、定額デザイン、駐車場、お子様連れ相談まで。初めての方が知りたいことを、LINE相談の前にわかりやすく整理します。</p>
+        <h1>指先に、<br>小さな余白を。</h1>
+        <p class="lead">四ツ木エリアの完全個室ネイルサロン。フィルイン、パラジェル変更、定額デザイン、駐車場、お子様連れ相談まで、初めての方が予約前に知りたいことをすっきり整理します。</p>
         <div class="hero-actions">
           <a class="button line" href="#reserve">予約リクエスト</a>
           <a class="button secondary" href="https://www.instagram.com/nailsalonc.s/">Instagramを見る</a>
         </div>
-        <div class="quick" aria-label="サロンの特徴">
-          <div>
-            <strong>完全個室</strong>
-            <span>1人で貸切のプライベート空間</span>
-          </div>
-          <div>
-            <strong>LINE相談</strong>
-            <span>施術中に電話へ出られない時も安心</span>
-          </div>
-          <div>
-            <strong>駐車場あり</strong>
-            <span>お子様連れも相談しやすい導線</span>
-          </div>
+        <div class="chips" aria-label="サロンの特徴">
+          <span class="chip">完全個室</span>
+          <span class="chip">フィルイン対応</span>
+          <span class="chip">パラジェル変更</span>
+          <span class="chip">駐車場あり</span>
+          <span class="chip">LINE相談</span>
         </div>
       </div>
-      <figure class="hero-media">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1400&q=85" alt="ネイルデザインのイメージ">
-        <figcaption class="media-note">初回オフ、デザイン相談、住所詳細の案内まで、LINEで確認できる導線へ。</figcaption>
-      </figure>
+
+      <div class="hero-visual" aria-label="ネイルサロンイメージ">
+        <figure class="main-photo">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1500&q=88" alt="落ち着いたネイルデザインの手元">
+        </figure>
+        <figure class="mini-photo">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=800&q=86" alt="ナチュラルなネイルカラー">
+        </figure>
+        <div class="mini-note">施術中は電話に出られない時も。LINEとInstagram DMへ自然につなぎます。</div>
+        <div class="floating-card">
+          <strong>予約前に、デザイン・オフ・住所案内まで確認。</strong>
+          <span>プライベートサロンだからこそ、初回の不安を先にほどく導線へ。</span>
+        </div>
+      </div>
     </section>
 
-    <section id="feature">
+    <section class="quiet" id="feature">
       <div class="section-head">
-        <h2>初めての方が知りたいことを、予約前に整理。</h2>
-        <p>媒体ページでは埋もれやすい強みを、スマホで見やすい順番に並べ替えます。</p>
+        <h2>媒体ページで埋もれやすい魅力を、スマホで見やすく。</h2>
+        <p>初回客が迷いやすい「どんなサロンか」「どう相談するか」「住所はいつわかるか」を、予約前の順番で見せます。</p>
       </div>
       <div class="feature-grid">
         <article class="feature">
           <b>01</b>
-          <h3>爪を弱らせにくい施術</h3>
-          <p>フィルイン、パラジェル変更、丁寧なカウンセリングを、初回の不安解消として前面に。</p>
+          <h3>爪を弱らせにくい継続ケア</h3>
+          <p>フィルインやパラジェル変更の訴求を、リピーター化しやすい安心材料として整理します。</p>
         </article>
         <article class="feature">
           <b>02</b>
-          <h3>定額デザインを見て相談</h3>
-          <p>Instagramでデザインを確認し、そのままLINEやDMで相談できる導線を明確に。</p>
+          <h3>デザインを見てからLINE相談</h3>
+          <p>Instagramで好みのデザインを確認し、そのままLINEやDMで相談できる流れを作ります。</p>
         </article>
         <article class="feature">
           <b>03</b>
           <h3>自宅サロンの来店不安を軽く</h3>
-          <p>住所詳細は予約後案内。駐車場、道案内、前日連絡の流れを先に伝えます。</p>
+          <p>住所詳細は予約後案内。駐車場、道案内、前日連絡の流れを先に伝えられます。</p>
+        </article>
+      </div>
+      <div class="gallery" aria-label="ネイルサロンの雰囲気">
+        <img src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?auto=format&fit=crop&w=900&q=85" alt="ネイル施術のイメージ">
+        <img src="https://images.unsplash.com/photo-1600428877878-1a0fd85beda5?auto=format&fit=crop&w=1000&q=85" alt="美容サロンのインテリアイメージ">
+        <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=900&q=85" alt="シンプルなネイルカラー">
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-head">
+        <h2>Menu preview</h2>
+        <p>公開情報をもとにしたラフ表示です。正式導入時に最新メニューへ差し替えます。</p>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <span class="tag">Basic</span>
+          <h3>ワンカラー / ラメグラ</h3>
+          <p>初めての方にも選びやすいベーシックメニュー。初回オフ無料の訴求と相性が良い入口です。</p>
+          <span class="price">5,980円〜</span>
+        </article>
+        <article class="menu-card">
+          <span class="tag">Design</span>
+          <h3>定額デザイン</h3>
+          <p>毎月更新のデザインをInstagramで確認し、気になるデザインをLINEで相談できます。</p>
+          <span class="price">要確認</span>
+        </article>
+        <article class="menu-card">
+          <span class="tag">Care</span>
+          <h3>フィルイン / パラジェル</h3>
+          <p>爪を弱らせにくく続けたい方に。生活スタイルに合わせた提案へつなげます。</p>
+          <span class="price">要確認</span>
         </article>
       </div>
     </section>
 
-    <section id="menu">
-      <div class="section-head">
-        <h2>Popular menu</h2>
-        <p>公開情報をもとにしたラフ表示です。正式導入時に最新メニューへ差し替えます。</p>
-      </div>
-      <div class="menu-list">
-        <div class="menu-row">
-          <strong>ワンカラー / ラメグラ</strong>
-          <span>初めての方にも選びやすいベーシックメニュー。初回オフ代無料の訴求と相性が良い枠です。</span>
-          <span class="price">5,980円〜</span>
-        </div>
-        <div class="menu-row">
-          <strong>定額デザイン</strong>
-          <span>毎月更新のデザインをInstagramで確認し、気になるデザインをLINEで相談できます。</span>
-          <span class="price">要確認</span>
-        </div>
-        <div class="menu-row">
-          <strong>フィルイン / パラジェル</strong>
-          <span>爪を弱らせにくく続けたい方に。生活スタイルに合わせた提案へつなげます。</span>
-          <span class="price">要確認</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="dark" id="flow">
+    <section class="flow-section" id="flow">
       <div class="flow">
         <div>
           <span class="eyebrow">Reservation flow</span>
-          <h2>電話に出られない時も、LINEで迷わず受付。</h2>
+          <h2>電話に出られない時間も、LINEで迷わず受付。</h2>
         </div>
         <div class="steps">
           <div class="step">
@@ -846,8 +960,8 @@
       </div>
     </section>
 
-    <section id="access">
-      <div class="access">
+    <section class="access" id="access">
+      <div class="access-grid">
         <div class="info">
           <span class="eyebrow">Access</span>
           <h2>四ツ木エリアの完全個室サロン。</h2>
@@ -874,8 +988,8 @@
             </div>
           </dl>
         </div>
-        <div class="map">
-          <strong>Address after<br>reservation</strong>
+        <div class="map-panel">
+          <strong>Address details after reservation.</strong>
         </div>
       </div>
     </section>
