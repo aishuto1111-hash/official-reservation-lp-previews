@@ -6,6 +6,9 @@
   <title>nail salon C. | 公式予約導線プレビュー</title>
   <meta name="description" content="nail salon C.の公式予約導線LPプレビュー。公開情報をもとにした非公式ラフ案です。">
   <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #171411;
@@ -19,6 +22,9 @@
       --blue: #385a70;
       --gold: #d2b35f;
       --shadow: 0 28px 80px rgba(23, 20, 17, .13);
+      --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+      --font-serif: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+      --font-display: "Cormorant Garamond", "Times New Roman", serif;
     }
 
     * {
@@ -33,8 +39,10 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Yu Gothic", sans-serif;
+      font-family: var(--font-sans);
       letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     img {
@@ -74,15 +82,19 @@
     .brand {
       display: grid;
       gap: 2px;
+      font-family: var(--font-display);
+      font-size: 19px;
       line-height: 1;
-      font-weight: 900;
+      font-weight: 600;
+      letter-spacing: .035em;
     }
 
     .brand span {
       color: var(--muted);
+      font-family: var(--font-sans);
       font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .14em;
+      font-weight: 500;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
@@ -92,7 +104,7 @@
       gap: 18px;
       color: var(--muted);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 500;
     }
 
     .button {
@@ -105,7 +117,7 @@
       background: var(--ink);
       color: var(--soft);
       font-size: 13px;
-      font-weight: 900;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -125,7 +137,7 @@
       background: #e9ded6;
       color: #5f534c;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.6;
       text-align: center;
     }
@@ -153,9 +165,10 @@
       width: fit-content;
       gap: 10px;
       color: var(--sage);
+      font-family: var(--font-display);
       font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .16em;
+      font-weight: 700;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
@@ -168,17 +181,20 @@
 
     h1 {
       max-width: 560px;
-      font-size: clamp(42px, 4.7vw, 64px);
-      line-height: 1.08;
-      font-weight: 900;
+      font-family: var(--font-serif);
+      font-size: clamp(43px, 5.4vw, 72px);
+      line-height: 1.14;
+      font-weight: 400;
       letter-spacing: 0;
+      font-feature-settings: "palt" 1;
+      text-wrap: balance;
     }
 
     .lead {
       max-width: 570px;
       color: var(--muted);
       font-size: clamp(15px, 1.5vw, 18px);
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.9;
     }
 
@@ -201,7 +217,7 @@
       background: rgba(255, 250, 243, .72);
       color: var(--muted);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 500;
     }
 
     .hero-visual {
@@ -244,7 +260,7 @@
       background: var(--ink);
       color: var(--soft);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 400;
       line-height: 1.65;
     }
 
@@ -262,14 +278,17 @@
     .floating-card strong {
       display: block;
       margin-bottom: 6px;
+      font-family: var(--font-serif);
       font-size: 15px;
-      line-height: 1.4;
+      line-height: 1.5;
+      font-weight: 500;
+      font-feature-settings: "palt" 1;
     }
 
     .floating-card span {
       color: var(--muted);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 400;
       line-height: 1.65;
     }
 
@@ -288,17 +307,20 @@
 
     h2 {
       max-width: 760px;
-      font-size: clamp(30px, 4.8vw, 58px);
-      line-height: 1.08;
-      font-weight: 900;
+      font-family: var(--font-serif);
+      font-size: clamp(31px, 4.9vw, 60px);
+      line-height: 1.2;
+      font-weight: 400;
       letter-spacing: 0;
+      font-feature-settings: "palt" 1;
+      text-wrap: balance;
     }
 
     .section-head p {
       max-width: 440px;
       color: var(--muted);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.85;
     }
 
@@ -332,19 +354,23 @@
       height: 40px;
       background: var(--mist);
       color: var(--sage);
+      font-family: var(--font-display);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 700;
     }
 
     .feature h3 {
       font-size: 23px;
       line-height: 1.25;
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-feature-settings: "palt" 1;
     }
 
     .feature p {
       color: var(--muted);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.75;
     }
 
@@ -394,21 +420,25 @@
       padding: 6px 8px;
       background: var(--ink);
       color: var(--soft);
+      font-family: var(--font-display);
       font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .12em;
+      font-weight: 700;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
     .menu-card h3 {
       font-size: 24px;
       line-height: 1.18;
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-feature-settings: "palt" 1;
     }
 
     .menu-card p {
       color: var(--muted);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.75;
     }
 
@@ -416,7 +446,8 @@
       margin-top: auto;
       color: var(--sage);
       font-size: 18px;
-      font-weight: 900;
+      font-family: var(--font-display);
+      font-weight: 700;
     }
 
     .flow-section {
@@ -461,20 +492,24 @@
       height: 46px;
       background: var(--soft);
       color: var(--sage);
+      font-family: var(--font-display);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 700;
     }
 
     .step h3 {
       margin-bottom: 8px;
       font-size: 20px;
       line-height: 1.25;
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-feature-settings: "palt" 1;
     }
 
     .step p {
       color: rgba(255, 250, 243, .76);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.8;
     }
 
@@ -501,7 +536,7 @@
     .request-copy p {
       color: var(--muted);
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.9;
     }
 
@@ -519,8 +554,8 @@
       gap: 8px;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .08em;
+      font-weight: 500;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
 
@@ -549,14 +584,14 @@
       background: var(--rose);
       color: var(--soft);
       font-size: 15px;
-      font-weight: 900;
+      font-weight: 600;
       cursor: pointer;
     }
 
     .micro {
       color: var(--muted);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.7;
     }
 
@@ -604,11 +639,11 @@
 
     dt {
       color: var(--muted);
-      font-weight: 900;
+      font-weight: 500;
     }
 
     dd {
-      font-weight: 700;
+      font-weight: 500;
     }
 
     .map-panel {
@@ -624,9 +659,10 @@
 
     .map-panel strong {
       max-width: 420px;
+      font-family: var(--font-display);
       font-size: clamp(28px, 4vw, 48px);
-      line-height: 1.08;
-      font-weight: 900;
+      line-height: 1.05;
+      font-weight: 600;
     }
 
     footer {
@@ -637,7 +673,7 @@
       background: var(--ink);
       color: var(--soft);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 400;
     }
 
     .toast {
@@ -652,7 +688,7 @@
       color: var(--soft);
       box-shadow: var(--shadow);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 400;
       line-height: 1.6;
       opacity: 0;
       transition: .24s ease;
